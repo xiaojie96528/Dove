@@ -22,11 +22,12 @@
     </n-icon>
 </template>
 
-<script>
-export default {
-    name: "Material"
-}
-</script>
 
+<script lang="ts">
+import { defineComponent, } from "@vue/runtime-core"
+export default defineComponent({
+    name: "Material"
+})
+</script>
 <style>
 </style>

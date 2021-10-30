@@ -29,11 +29,11 @@
     </n-form>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, reactive, ref, toRaw } from "@vue/runtime-core";
 import { useMessage } from 'naive-ui'
-import postData from "../../lib/postData.js"
-import SaveIcon from "../../icon/Save.vue"
+import postData from "@/lib/postData.js"
+import SaveIcon from "@/icon/Save.vue"
 let rules = {
     name: {
         required: true,
@@ -65,7 +65,7 @@ export default defineComponent({
     },
     props: {
         modifyData: {
-            default: null,
+            default: '',
             type: Object
         },
         isEdit: {
@@ -76,13 +76,13 @@ export default defineComponent({
     emits: ["saveOk"],
     setup(props, { emit }) {
         console.log(props.modifyData)
-        const formRef = ref(null)
+        const formRef = ref()
         const message = useMessage()
         const formValue = reactive({
             ...props.modifyData
         })
         const loading = ref(false)
-        const save = (data) => {
+        const save = (data: any) => {
             loading.value = true
             postData("api/materials/add", data)
                 .then(data => {
@@ -97,7 +97,7 @@ export default defineComponent({
                     message.error("服务器出错，请重新刷新！")
                 })
         }
-        const update = (data) => {
+        const update = (data: any) => {
             loading.value = true
             postData("api/materials/update", data)
                 .then(data => {
@@ -112,8 +112,8 @@ export default defineComponent({
                 })
         }
 
-        const handleValidateClick = (e) => {
-            formRef.value.validate((errors) => {
+        const handleValidateClick = (e: any) => {
+            formRef.value.validate((errors: any) => {
                 if (!errors) {
                     // message.success('正在保存！')
                     if (props.isEdit) {

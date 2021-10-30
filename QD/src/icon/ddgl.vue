@@ -1,3 +1,7 @@
+
+
+
+
 <template>
     <n-icon>
         <svg
@@ -13,10 +17,11 @@
     </n-icon>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, } from "@vue/runtime-core"
+export default defineComponent({
     name: "ddgl"
-}
+})
 </script>
 
 <style>

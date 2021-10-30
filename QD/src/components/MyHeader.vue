@@ -19,7 +19,7 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
 import LogoutIcon from "@/icon/Logout.vue"
 import yjzhIcon from '@/icon/yjzh.vue'
 import ddglIcon from '@/icon/ddgl.vue'
@@ -29,26 +29,27 @@ import zlglIcon from '@/icon/zlgl.vue'
 import jsglIcon from '@/icon/jsgl.vue'
 import wzglIcon from '@/icon/wzgl.vue'
 import settingIcon from '@/icon/setting.vue'
-import getData from "@/lib/getData.js"
-import { h, ref } from 'vue'
+import { BookmarkOutline, CaretDownOutline, HomeOutline } from '@vicons/ionicons5'
+import { defineComponent, h, ref } from '@vue/runtime-core'
 import { NIcon } from 'naive-ui'
 import {
   WineOutline as WineIcon,
 } from '@vicons/ionicons5'
 import { useRouter } from "vue-router"
+import { post } from '@/api/user'
 
 
-function renderIcon (icon) {
+function renderIcon(icon: any) {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
-export default {
-  name: "MyHeader",
+export default defineComponent({
+
   components: {
     LogoutIcon
   },
-  setup () {
+  setup() {
     const router = useRouter()
-    const handleUpdateValue = (key, item) => {
+    const handleUpdateValue = (key: any, item: any) => {
       router.replace({ name: key })
     }
     const menuOptions = [
@@ -116,17 +117,21 @@ export default {
         ]
       }
     ]
-
-
     const logout = () => {
-      getData("api/user/logout", {})
-        .then(data => {
+
+      post("api/user/logout", {})
+        .then((data: any) => {
           console.log(data)
         })
-        .catch(error => {
+        .catch((error: any) => {
           console.error(error)
         })
-      localStorage.setItem("loginstatus", false);
+
+
+      localStorage.setItem("loginstatus", "0");
+      router.replace({ name: 'L' })
+
+
     }
 
 
@@ -134,30 +139,29 @@ export default {
 
     return {
       logout,
-      activeKey: ref(null),
       collapsed: ref(false),
       menuOptions,
-      renderMenuLabel (option) {
+      renderMenuLabel(option: any) {
         if ('href' in option) {
           return h('a', { href: option.href, target: '_blank' }, option.label)
         }
         return option.label
       },
-      renderMenuIcon (option) {
+      renderMenuIcon(option: any) {
         // 渲染图标占位符以保持缩进
         if (option.key === 'sheep-man') return true
         // 返回 falsy 值，不再渲染图标及占位符
         if (option.key === 'food') return null
         return h(NIcon, null, { default: () => h(BookmarkOutline) })
       },
-      expandIcon () {
+      expandIcon() {
         return h(NIcon, null, { default: () => h(CaretDownOutline) })
       },
       handleUpdateValue
     }
 
   }
-}
+})
 </script>
 
 <style>

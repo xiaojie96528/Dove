@@ -4,7 +4,7 @@
     <router-view></router-view>
   </n-message-provider>
 
-  <n-result status="404" title="404 资源不存在" description="生活总归带点荒谬">
+  <!-- <n-result status="404" title="404 资源不存在" description="生活总归带点荒谬">
     <template #footer>
       <n-button>找点乐子吧</n-button>
     </template>
@@ -38,13 +38,13 @@
     <template #footer>
       <n-button>还是离它远点吧</n-button>
     </template>
-  </n-result>
+  </n-result>-->
 </template>
-<script>
+<script lang="ts">
 import { defineComponent, reactive } from "@vue/runtime-core"
 import { useRouter } from "vue-router"
 export default defineComponent({
-  setup () {
+  setup() {
     const router = useRouter()
     const states = reactive({
       user: null,

@@ -7,13 +7,13 @@
     </div>
 </template>
 
-<script>
-import { defineComponent } from "@vue/runtime-core";
+<script lang="ts">
+import { defineComponent, reactive, onBeforeMount, onMounted, toRefs } from "@vue/runtime-core";
 
 export default defineComponent({
     name: "blankpage",
     components: {},
-    setup () {
+    setup() {
         console.log('1-开始创建组件-setup')
         const data = reactive({})
         onBeforeMount(() => {

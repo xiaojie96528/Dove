@@ -13,9 +13,9 @@
     </n-layout>
 </template>
 
-<script>
-import MyMenu from "../components/menu.vue"
-import MyHeader from "../components/MyHeader.vue"
+<script lang="ts">
+import MyMenu from "@/components/menu.vue"
+import MyHeader from "@/components/MyHeader.vue"
 export default {
     components: {
         MyMenu,

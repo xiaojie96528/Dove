@@ -32,16 +32,16 @@
     </n-layout-sider>
 </template>
 
-<script>
-import { h, ref, defineComponent } from 'vue'
+<script lang="ts">
+import { h, ref, defineComponent } from '@vue/runtime-core'
 import { NIcon } from 'naive-ui'
 import { BookmarkOutline, CaretDownOutline, HomeOutline } from '@vicons/ionicons5'
-import MaterialIcon from "../icon/Material.vue"
-import ProductIcon from "../icon/Product.vue"
-import Production from "../icon/Production.vue"
+import MaterialIcon from "@/icon/Material.vue"
+import ProductIcon from "@/icon/Product.vue"
+import Production from "@/icon/Production.vue"
 import { useRouter } from "vue-router"
 import { NAvatar } from 'naive-ui'
-function renderIcon(icon) {
+function renderIcon(icon: any) {
     return () => h(NIcon, null, { default: () => h(icon) })
 }
 const menuOptions = [
@@ -78,7 +78,7 @@ export default defineComponent({
     },
     setup() {
         const router = useRouter()
-        const handleUpdateValue = (key, item) => {
+        const handleUpdateValue = (key: any, item: any) => {
             router.replace({ name: key })
         }
 
@@ -86,13 +86,13 @@ export default defineComponent({
             txname: ref('admin'),
             collapsed: ref(false),
             menuOptions,
-            renderMenuLabel(option) {
+            renderMenuLabel(option: any) {
                 if ('href' in option) {
                     return h('a', { href: option.href, target: '_blank' }, option.label)
                 }
                 return option.label
             },
-            renderMenuIcon(option) {
+            renderMenuIcon(option: any) {
                 // 渲染图标占位符以保持缩进
                 if (option.key === 'sheep-man') return true
                 // 返回 falsy 值，不再渲染图标及占位符

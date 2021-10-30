@@ -1,15 +1,15 @@
 <template>
     <layout />
 </template>
-<script>
+<script lang="ts">
 import { useRouter } from "vue-router"
 import { defineComponent, onBeforeMount, onBeforeUpdate } from "@vue/runtime-core"
-import Layout from "../../layout/index.vue"
+import Layout from "@/layout/index.vue"
 export default defineComponent({
     components: {
-        Layout
+        Layout,
     },
-    setup () {
+    setup() {
         const router = useRouter()
         onBeforeMount(() => {
             // if (!states.loginStatus) {

@@ -7,14 +7,15 @@
     </n-button>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "@vue/runtime-core"
 import Add from "../../icon/Add.vue"
-export default {
+export default defineComponent({
     name: "AddButton",
     components: {
         Add
     },
-}
+})
 </script>
 
 <style>

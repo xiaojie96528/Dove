@@ -2,7 +2,7 @@
     <div class="login-page">
         <div class="login-warp">
             <div style="text-align:center">
-                <img src="../../assets/logo.png" class="login-logo" alt />
+                <img src="@/assets/logo.png" class="login-logo" />
             </div>
             <div style="text-align:center">
                 <n-h1 prefix="bar" align-text type="primary">
@@ -41,18 +41,18 @@
         </div>
     </div>
 </template>
-<script>
+<script lang="ts">
 import { ref, reactive, toRaw } from "vue"
 import { useMessage } from 'naive-ui'
 import { useRouter } from "vue-router"
 import { loginReq } from '@/api/user'
 export default {
     name: "Login",
-    setup () {
-        const formRef = ref(null)
+    setup() {
+        const formRef = ref()
         const modelRef = reactive({
-            username: null,
-            password: null,
+            username: "",
+            password: "",
         })
         const message = useMessage()
         const loading = ref(false)
@@ -64,7 +64,7 @@ export default {
                     loading.value = false
                     if (res.data.code == 200) {
                         message.success("登录成功！")
-                        localStorage.setItem("loginstatus", true);
+                        localStorage.setItem("loginstatus", "1");
                         router.push({ name: 'Admin' })
                     } else {
                         message.error(res.data.msg)
@@ -108,7 +108,6 @@ export default {
     height: auto;
     margin: 0 auto;
     background-color: white;
-    /* text-align: center; */
     border-radius: 10px;
     padding: 30px;
 }

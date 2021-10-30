@@ -6,7 +6,7 @@
     </n-button>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
 import { Search } from "@vicons/ionicons5"
 export default defineComponent({

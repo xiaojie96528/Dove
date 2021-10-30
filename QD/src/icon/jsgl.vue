@@ -16,10 +16,11 @@
         </svg>
     </n-icon>
 </template>
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, reactive } from "@vue/runtime-core"
+export default defineComponent({
     name: "jsglIcon"
-}
+})
 </script>
 
 <style>
