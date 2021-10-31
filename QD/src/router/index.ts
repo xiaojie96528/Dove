@@ -18,7 +18,7 @@ const routes = [
         // UserProfile 将被渲染到 User 的 <router-view> 内部
         path: '',
         name: 'Workbench',
-        component: () => import('@/view/workbench/index.vue')
+        component: () => import('@/view/l-1sy/index.vue')
       },
       {
         // 当 /user/:id/posts 匹配成功
@@ -51,7 +51,7 @@ const router = createRouter({
   routes // `routes: routes` 的缩写
 })
 router.beforeEach((to, from, next) => {
-  if (to.name !== 'Login' && !Boolean(localStorage.getItem('loginstatus'))) {
+  if (to.name !== 'Login' && localStorage.getItem('loginstatus') == '0') {
     next({ name: 'L' })
   } else {
     next()

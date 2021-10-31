@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from '@/App.vue'
-import router from '@/router/index.ts'
+import store from '@/store'
+import router from '@/router'
 // 通用字体
 import 'vfonts/Lato.css'
 // 等宽字体
@@ -70,7 +71,5 @@ const naive = create({
     NResult
   ]
 })
-const app = createApp(App)
-app.use(naive)
-app.use(router)
-app.mount('#app')
+
+createApp(App).use(naive).use(router).use(store).mount('#app')

@@ -6,14 +6,15 @@ const { resolve } = require('path')
 export default defineConfig({
   plugins: [vue()],
   resolve: {
+    extensions: ['.ts', '.vue', '.json', '.js'],
     alias: {
-      '@': '/src',
-    },
+      '@': '/src'
+    }
   },
 
   server: {
-    host: "0.0.0.0",
-    open: "/",
+    host: '0.0.0.0',
+    open: '/',
     proxy: {
       // 如果是 /lsbdb 打头，则访问地址如下
       // 如果是 /lsbdb 打头，则访问地址如下
@@ -22,9 +23,8 @@ export default defineConfig({
         changeOrigin: true,
         // rewrite: path => path.replace(/^\/lsbdb/, '')
         // rewrite: (path) => path.replace(/^\/api/, '')
-        rewrite: (path) => path
+        rewrite: path => path
       }
     }
   }
-
 })
