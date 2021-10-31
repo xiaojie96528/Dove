@@ -1,6 +1,7 @@
 // src/store/index.ts
 import { App, watch } from 'vue'
 import UserStore from './UserStore'
+import FixStyle from './fixStyle'
 /**
  * IStore接口，所有Store都必须实现这个接口才能注册
  */
@@ -17,7 +18,7 @@ declare interface IStore<State> {
 /**
  * 待注册的store，类似于vuex中的module
  */
-const Stores: Record<string, IStore<any>> = { UserStore }
+const Stores: Record<string, IStore<any>> = { UserStore, FixStyle }
 /**
  * 用于安装vue插件的方法，需要在main.ts里导入并调用app.use()才可以集成store
  * @param app Vue实例
