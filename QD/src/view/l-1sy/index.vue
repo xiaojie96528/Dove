@@ -1,7 +1,7 @@
 <template>
     <div>
-        首页
-        <VisiTab />
+        <!-- <VisiTab /> -->
+        <raliway />
     </div>
 </template>
 
@@ -9,9 +9,11 @@
 import { defineComponent, reactive, onBeforeMount, onMounted, toRefs } from "@vue/runtime-core";
 
 import VisiTab from '@/components/charts/VisiTab.vue';
+import raliway from '@/components/charts/VisiTabraliway.vue'
+
 export default defineComponent({
     name: "workbench",
-    components: { VisiTab },
+    components: { VisiTab, raliway },
     setup() {
         console.log('1-开始创建组件-setup')
         const data = reactive({})
