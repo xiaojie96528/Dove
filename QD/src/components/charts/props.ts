@@ -18,10 +18,10 @@ export const basicProps = {
 export const fullProps = {
   width: {
     type: String as PropType<string>,
-    default: '100%'
+    default: '40%'
   },
   height: {
     type: String as PropType<string>,
-    default: '850px'
+    default: '650px'
   }
 }
