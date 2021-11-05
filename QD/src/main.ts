@@ -6,6 +6,8 @@ import router from '@/router'
 import 'vfonts/Lato.css'
 // 等宽字体
 import 'vfonts/FiraCode.css'
+//tailwindcss
+import '@/assets/style/index.css'
 import {
   // create naive ui
   create,

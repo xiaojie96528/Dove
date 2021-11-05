@@ -4,7 +4,7 @@
             <div :style="fixStyle" class="filter">
                 <div class="login-page">
                     <div class="login-warp">
-                        <div style="text-align:center">
+                        <div class="centered">
                             <img src="@/assets/logo.png" class="login-logo" alt="CRH数据分析系统" />
                         </div>
                         <div style="text-align:center">
