@@ -61,14 +61,17 @@ export default defineComponent({
                   coordinateSystem: 'geo', // 这句的意思是连线是基于地理坐标的,geo组件将在下面给出
                   polyline: true, // 这表示连线是否为多端点的连线
                   data: busLines, // 这里就是连线的数据了 上面组装的数据就在这里使用
+                  markPoint: {
+                    label: "123"
+                  },
                   lineStyle: {
                     normal: {
                       opacity: 1,
                       width: 2
                     }
                   },
-                  progressiveThreshold: 500,
-                  progressive: 200
+                  progressiveThreshold: 5,
+                  progressive: 1
                 },
                 {
                   type: 'lines', // 这里还有一个连线其实是做的在线上的一个流动效果，运行代码注意观察你就会看到
@@ -81,25 +84,28 @@ export default defineComponent({
                     }
                   },
                   effect: {
-                    constantSpeed: 20,
+                    constantSpeed: 30,
                     show: true,
+                    Symbol: 'path://M21.96 11.22C21.57 7.01 17.76 4 13.56 4c-.19 0-.38.01-.57.02C2 4.74 2 17.2 2 17.2v.8c0 1.1.9 2 2 2h10c4.67 0 8.41-4.01 7.96-8.78zm-16.7.34c.57-1.29 1.28-2.35 2.14-3.19l3.62 1.53c.6.25.98.83.98 1.48c0 .89-.72 1.61-1.61 1.61H4.72c.15-.46.32-.94.54-1.43zm13.18 4.48A6.022 6.022 0 0 1 14 18H4v-.8c0-.02.01-.92.24-2.2h6.15c1.99 0 3.61-1.62 3.61-3.61c0-1.45-.87-2.76-2.2-3.32L9.3 7.01c1.1-.57 2.37-.9 3.82-.99c.15-.02.3-.02.44-.02c3.31 0 6.13 2.37 6.41 5.41c.16 1.72-.38 3.36-1.53 4.63z',
                     trailLength: 0.1,
-                    symbolSize: 1.5
+                    symbolSize: 3
                   },
-                  zlevel: 1
+                  zlevel: 1,
+                  progressiveThreshold: 5,
+                  progressive: 1
                 }
               )
               // setoption就是这里面最主要的东西了，上面的准备都是为了这里
               myChart.setOption({
                 backgroundColor: '#404a59', // 这些设置去官网看手册就知道了
-                animation: false,
+                animation: true,
                 title: {
-                  text: '高铁网络',
-                  subtext: 'data from ',
-                  sublink: '',
+                  text: '福州动车段交路图',
+                  // subtext: 'data from ',
+                  // sublink: '',
                   left: 'center',
                   textStyle: {
-                    color: '#fff'
+                    color: '#ccc'
                   }
                 },
                 tooltip: {
@@ -111,9 +117,11 @@ export default defineComponent({
                 geo: {
                   // geo组件
                   map: 'china',
+                  center: [110.00, 32.00],
+                  zoom: 2.5,
                   label: {
                     normal: {
-                      show: true,
+                      show: false,
                       formatter: '{a}',
                       // position: 'inside',
                       backgroundColor: '#fff',
@@ -127,7 +135,7 @@ export default defineComponent({
                       areaColor: '#2a333d'
                     }
                   },
-                  selectedMode: 'single',
+                  selectedMode: 'false',
                   roam: true,
                   itemStyle: {
                     normal: {

@@ -154,6 +154,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
 .login-page {
     width: 100vw;
     height: 100vh;
