@@ -28,9 +28,9 @@ const routes = [
       {
         // 当 /user/:id/posts 匹配成功
         // UserPosts 将被渲染到 User 的 <router-view> 内部
-        path: 'material-management',
-        name: 'MaterialManagement',
-        component: () => import('@/view/material-management/index.vue'),
+        path: 'yjyc',
+        name: 'yjyc',
+        component: () => import('@/view/l-2yjyc/index.vue'),
       },
       {
         // 当 /user/:id/posts 匹配成功

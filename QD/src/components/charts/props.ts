@@ -8,20 +8,20 @@ export interface BasicProps {
 export const basicProps = {
   width: {
     type: String as PropType<string>,
-    default: '100%'
+    default: '100%',
   },
   height: {
     type: String as PropType<string>,
-    default: '280px'
-  }
+    default: '280px',
+  },
 }
 export const fullProps = {
   width: {
     type: String as PropType<string>,
-    default: '40%'
+    default: '55%',
   },
   height: {
     type: String as PropType<string>,
-    default: '650px'
-  }
+    default: '500px',
+  },
 }

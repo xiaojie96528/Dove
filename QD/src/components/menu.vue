@@ -3,13 +3,13 @@
         bordered
         collapse-mode="width"
         :collapsed-width="64"
-        :width="240"
+        :width="180"
         :collapsed="collapsed"
         show-trigger
         @collapse="collapsed = true"
         @expand="collapsed = false"
     >
-        <n-card line>
+        <n-card>
             <n-space style="align-items: center;">
                 <n-avatar
                     round
@@ -17,9 +17,11 @@
                         color: 'black',
                     }"
                 >{{ txname }}</n-avatar>
-                <span>CRH数据分析系统</span>
+                <span class="font-bold text-2xl">CRH</span>
             </n-space>
+            <span class="text-xl font-extralight">数据分析系统</span>
         </n-card>
+
         <n-menu
             :collapsed="collapsed"
             :collapsed-width="64"
@@ -52,17 +54,17 @@ const menuOptions = [
     },
     {
         label: '预警预测',
-        key: 'MaterialManagement',
+        key: 'yjyc',
         icon: renderIcon(MaterialIcon)
     },
     {
         label: '辅助决策',
-        key: 'Product',
+        key: 'fzjc',
         icon: renderIcon(ProductIcon)
     },
     {
         label: '应急资源',
-        key: 'ProductionManagement',
+        key: 'yjzy',
         icon: renderIcon(Production)
     },
     {
