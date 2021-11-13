@@ -13,6 +13,10 @@
       :expand-icon="expandIcon"
       @update:value="handleUpdateValue"
     />
+    <div class="header-item" style="flex-direction: row">
+      <n-switch v-model:value="disabled" @update:value="handleChange" />
+      <div>{{ smodle }}</div>
+    </div>
     <div class="header-item" @click="logout">
       <logout-icon class="header-icon" />
       <div>注销</div>
@@ -30,7 +34,7 @@ import jsglIcon from '@/icon/jsgl.vue'
 import wzglIcon from '@/icon/wzgl.vue'
 import settingIcon from '@/icon/setting.vue'
 import { BookmarkOutline, CaretDownOutline, HomeOutline } from '@vicons/ionicons5'
-import { defineComponent, h, ref } from '@vue/runtime-core'
+import { defineComponent, h, ref, reactive, toRefs } from '@vue/runtime-core'
 import { NIcon } from 'naive-ui'
 import {
   WineOutline as WineIcon,
@@ -134,10 +138,20 @@ export default defineComponent({
 
     }
 
-
-
-
+    const data = reactive({
+      smodle: "浅色"
+    })
     return {
+      ...toRefs(data),
+      disabled: ref(false),
+      handleChange(e: boolean) {
+        if (e) {
+          data.smodle = "深色"
+        }
+        else {
+          data.smodle = "浅色"
+        }
+      },
       logout,
       collapsed: ref(false),
       menuOptions,

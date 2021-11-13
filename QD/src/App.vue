@@ -1,11 +1,14 @@
 <template>
-  <n-message-provider>
-    <router-view></router-view>
-  </n-message-provider>
+  <n-config-provider :theme="darkTheme">
+    <n-message-provider>
+      <router-view></router-view>
+    </n-message-provider>
+  </n-config-provider>
 </template>
 <script lang="ts">
 import { defineComponent, reactive } from "@vue/runtime-core"
 import { useRouter } from "vue-router"
+import { darkTheme } from 'naive-ui'
 
 export default defineComponent({
   name: "App",
@@ -14,8 +17,10 @@ export default defineComponent({
     const states = reactive({
       user: null,
     })
+    localStorage.setItem('theme', '')
     return {
-      states
+      states,
+      darkTheme
     }
   }
 })

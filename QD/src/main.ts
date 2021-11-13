@@ -39,7 +39,8 @@ import {
   NCard,
   NTooltip,
   NSelect,
-  NResult
+  NResult,
+  NConfigProvider,
 } from 'naive-ui'
 const naive = create({
   components: [
@@ -70,8 +71,9 @@ const naive = create({
     NCard,
     NTooltip,
     NSelect,
-    NResult
-  ]
+    NResult,
+    NConfigProvider,
+  ],
 })
 
 createApp(App).use(naive).use(router).use(store).mount('#app')
